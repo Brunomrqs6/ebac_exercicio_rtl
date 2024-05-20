@@ -9,12 +9,24 @@ describe('Teste para os comentários', () => {
     })
     test('Deve adicionar primeiro comentario', () => {
         render(<PostComment />);
-        fireEvent.change(screen.getByTestId("campo-comentario"), {
+        fireEvent.change(screen.getByTestId('campo-comentario'), {
             target: {
-                value: "primeiro comentario"
+                value: 'primeiro comentario',
             }
         });
-        fireEvent.click(screen.getByTestId("btn-comentario"));
-        expect(screen.getByText("primeiro comentario").toBeInTheDocument())
+        fireEvent.click(screen.getByTestId('btn-comentario'));
+        expect(screen.getByText('primeiro comentario')).toBeInTheDocument();
     })
-})  
+
+
+    test('Deve adicionar segundo comentario', () => {
+        render(<PostComment />);
+        fireEvent.change(screen.getByTestId('campo-comentario'), {
+            target: {
+                value: 'segundo comentario',
+            }
+        });
+        fireEvent.click(screen.getByTestId('btn-comentario'));
+        expect(screen.getByText('segundo comentario')).toBeInTheDocument();
+    })
+})
